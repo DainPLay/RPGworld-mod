@@ -793,7 +793,6 @@
     <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_005.png" />
     <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_006.png" />
     <EmbeddedResource Include="Characters\KKoRRoLL\win_pic_junkan.png" />
-    <Content Include="icon.ico" />
     <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_001.png" />
     <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_002.png" />
     <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_003.png" />

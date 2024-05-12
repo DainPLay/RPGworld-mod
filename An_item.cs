@@ -26,7 +26,7 @@ namespace RPGworldMod
 
             string shortDesc = "Drops a shadow";
 
-            string longDesc = "Can be thrown. While flying or laying, it can drop a shadow very similar to you! Exact match even.\n\n" +
+            string longDesc = "Can be thrown. At any point it can drop a shadow very similar to you! Exact match even.\n\n" +
             "Just an item with a shadow. In its place there really could be anything else besides glass.";
 
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "rpgworld");
