@@ -1,0 +1,15 @@
+base: Convict
+name: KKoRRoLL
+name short: kkorroll
+nickname: Shadow
+punchout sprite fix: true
+
+<loadout>
+	rpgworld:gruv_pistol infinite
+	rpgworld:an_item
+	rpgworld:gruv_crown
+</loadout>
+
+<altGuns>
+	rpgworld:gruv_pistol infinite
+</altGuns>

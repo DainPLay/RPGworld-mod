@@ -1,0 +1,821 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6D7A494-722E-4763-959B-C2D6B6A42B01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RPGworldMod</RootNamespace>
+    <AssemblyName>RPGworldMod</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Gruv_machine_gun.cs" />
+    <Compile Include="Gruv_crown.cs" />
+    <Compile Include="Gruv_assault_rifle.cs" />
+    <Compile Include="Gruv_rocket_launcher.cs" />
+    <Compile Include="Gruv_sniper_rifle.cs" />
+    <Compile Include="Gruv_shotgun.cs" />
+    <Compile Include="Gruv_pistol.cs" />
+    <Compile Include="InitialiseSynergies.cs" />
+    <Compile Include="InitialiseCharacters.cs" />
+    <Compile Include="An_item.cs" />
+    <Compile Include="MiscToolMethods.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SRainbowModifier.cs" />
+    <Compile Include="StaticCoroutine.cs" />
+    <Compile Include="Stuff.cs" />
+    <Compile Include="TeleportPlayerToCursorPosition.cs" />
+    <Compile Include="Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_004.png" />
+    <EmbeddedResource Include="Resources\example_item_sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\HarmonyX.2.7.0\lib\net35\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Alexandria, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.Alexandria.0.4.0\lib\net35\Alexandria.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.GameLibs.2.1.9.1\lib\net35\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.GameLibs.2.1.9.1\lib\net35\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx, Version=5.4.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\BepInEx.BaseLib.5.4.21\lib\net35\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="ModTheGungeonAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.ModTheGungeonAPI.1.7.4\lib\net35\ModTheGungeonAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.10.4\lib\net35\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.10.4\lib\net35\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.10.4\lib\net35\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>packages\Mono.Cecil.0.10.4\lib\net35\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.RuntimeDetour, Version=21.12.13.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MonoMod.RuntimeDetour.21.12.13.1\lib\net35\MonoMod.RuntimeDetour.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.Utils, Version=21.12.13.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MonoMod.Utils.21.12.13.1\lib\net35\MonoMod.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayMaker, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.GameLibs.2.1.9.1\lib\net35\PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticlesLegacyModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StandardEvents, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StyleSheetsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WebModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.WebModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\KKoRRoLL\alt_skin_obj_sprite_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\alt_skin_obj_sprite_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\characterdata.txt" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\facecard.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\icon.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\facecard1.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\facecard2.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\facecard3.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms\convict_select_crossarms_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_choose\convict_select_choose_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\chest_recover\convict_chest_recover_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\chest_recover\convict_chest_recover_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\chest_recover\convict_chest_recover_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\chest_recover\convict_chest_recover_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\chest_recover\convict_chest_recover_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\chest_recover\convict_chest_recover_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\chest_recover\convict_chest_recover_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death\convict_death_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_coop\cc_sprite_placeholder.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_010.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_011.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\death_shot\convict_deathshot_012.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge\convict_dodge_south_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_bw\convict_dodge_north_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left\convict_dodge_side_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\dodge_left_bw\convict_dodge_back_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\doorway\convict_run_north_doorway_010.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back\convict_ghost_back_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back\convict_ghost_back_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back\convict_ghost_back_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back\convict_ghost_back_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_front\convict_ghost_front_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_front\convict_ghost_front_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_front\convict_ghost_front_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_front\convict_ghost_front_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_left\convict_ghost_front_left_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_left\convict_ghost_front_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_left\convict_ghost_front_left_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_left\convict_ghost_front_left_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_right\convict_ghost_front_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_right\convict_ghost_front_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_right\convict_ghost_front_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_idle_right\convict_ghost_front_right_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle\convict_idle_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle\convict_idle_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle\convict_idle_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle\convict_idle_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward\convict_idle_back_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward\convict_idle_back_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward\convict_idle_back_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward\convict_idle_back_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_hand\convict_idle_back_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_hand\convict_idle_back_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_hand\convict_idle_back_hand_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_hand\convict_idle_back_hand_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw\convict_idle_bw_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw\convict_idle_bw_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw\convict_idle_bw_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw\convict_idle_bw_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_bw_twohands\cc_sprite_placeholder.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward\convict_idle_front_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward\convict_idle_front_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward\convict_idle_front_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward\convict_idle_front_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_hand\convict_idle_front_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_hand\convict_idle_front_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_hand\convict_idle_front_hand_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_hand\convict_idle_front_hand_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_hand\convict_idle_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_hand\convict_idle_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_hand\convict_idle_hand_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_hand\convict_idle_hand_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_twohands\convict_idle_twohands_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_twohands\convict_idle_twohands_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_twohands\convict_idle_twohands_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\idle_twohands\convict_idle_twohands_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_010.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\item_get\convict_item_011.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_down\convict_jetpack_front_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_down\convict_jetpack_front_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_down_hand\convict_jetpack_front_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_down_hand\convict_jetpack_front_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_right\convict_jetpack_front_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_right\convict_jetpack_front_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_right_bw\convict_jetpack_back_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_right_bw\convict_jetpack_back_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_right_hand\convict_jetpack_front_right_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_right_hand\convict_jetpack_front_right_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_up\convict_jetpack_back_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\jetpack_up\convict_jetpack_back_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pet\convict_pet_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pet\convict_pet_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall\convict_pitfall_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall\convict_pitfall_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall\convict_pitfall_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall\convict_pitfall_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall\convict_pitfall_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall\convict_pitfall_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_down\convict_pitfall_forward_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_down\convict_pitfall_forward_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_down\convict_pitfall_forward_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_down\convict_pitfall_forward_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_down\convict_pitfall_forward_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_down\convict_pitfall_forward_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_return\convict_pit_return_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_return\convict_pit_return_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_return\convict_pit_return_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_return\convict_pit_return_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_return\convict_pit_return_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\pitfall_return\convict_pit_return_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down\convict_run_south_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down\convict_run_south_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down\convict_run_south_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down\convict_run_south_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down\convict_run_south_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down\convict_run_south_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_hand\convict_run_south_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_hand\convict_run_south_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_hand\convict_run_south_hand_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_hand\convict_run_south_hand_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_hand\convict_run_south_hand_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_hand\convict_run_south_hand_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_twohands\convict_run_south_hands2_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_twohands\convict_run_south_hands2_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_twohands\convict_run_south_hands2_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_twohands\convict_run_south_hands2_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_twohands\convict_run_south_hands2_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_down_twohands\convict_run_south_hands2_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right\convict_run_forward_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right\convict_run_forward_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right\convict_run_forward_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right\convict_run_forward_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right\convict_run_forward_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right\convict_run_forward_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw\convict_run_backwards_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw\convict_run_backwards_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw\convict_run_backwards_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw\convict_run_backwards_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw\convict_run_backwards_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw\convict_run_backwards_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw_hand\cc_sprite_placeholder.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_hand\convict_run_forward_hands_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_hand\convict_run_forward_hands_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_hand\convict_run_forward_hands_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_hand\convict_run_forward_hands_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_hand\convict_run_forward_hands_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_hand\convict_run_forward_hands_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_twohands\convict_run_forward_hands2_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_twohands\convict_run_forward_hands2_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_twohands\convict_run_forward_hands2_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_twohands\convict_run_forward_hands2_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_twohands\convict_run_forward_hands2_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_right_twohands\convict_run_forward_hands2_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up\convict_run_north_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up\convict_run_north_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up\convict_run_north_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up\convict_run_north_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up\convict_run_north_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up\convict_run_north_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_hand\convict_run_north_hands_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_hand\convict_run_north_hands_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_hand\convict_run_north_hands_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_hand\convict_run_north_hands_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_hand\convict_run_north_hands_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_hand\convict_run_north_hands_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_twohands\convict_run_north_hands2_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_twohands\convict_run_north_hands2_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_twohands\convict_run_north_hands2_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_twohands\convict_run_north_hands2_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_twohands\convict_run_north_hands2_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\run_up_twohands\convict_run_north_hands2_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\slide_down\convict_slide_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\slide_right\convict_slide_altright_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\slide_up\convict_slide_up_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spinfall\convict_spin_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spinfall\convict_spin_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spinfall\convict_spin_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spinfall\convict_spin_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spinfall\convict_spin_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spinfall\convict_spin_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spit_out\convict_tarnisher_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spit_out\convict_tarnisher_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spit_out\convict_tarnisher_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spit_out\convict_tarnisher_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spit_out\convict_tarnisher_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\spit_out\convict_tarnisher_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_down\convict_tablekick_down_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_down\convict_tablekick_down_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_down_hand\convict_tablekick_down_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_down_hand\convict_tablekick_down_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right\convict_tablekick_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right\convict_tablekick_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right\convict_tablekick_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right\convict_tablekick_right_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_up\convict_tablekick_up_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\tablekick_up\convict_tablekick_up_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\loadoutsprites\a_gruv_pistol.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\loadoutsprites\b_an_item.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\loadoutsprites\c_gruv_crown.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_appear_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_appear_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_appear_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_appear_010.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_appear_011.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_facecard_appear_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_facecard_appear_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_facecard_appear_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_facecard_appear_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_facecard_appear_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\bosscard_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\select_idle\convict_select_idle_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_out\convict_select_crossarms_out_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\crossarms_out\convict_select_crossarms_out_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_010.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_011.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_012.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_013.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_014.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_015.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_016.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_017.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_018.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_019.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_020.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_021.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_022.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_023.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_024.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_025.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_026.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_027.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_028.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_029.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_030.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_031.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_032.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_033.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_034.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_035.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_036.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_037.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_038.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_039.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_040.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_041.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_042.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_043.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_044.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_045.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_046.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_047.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_048.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_049.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_050.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_051.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_052.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_053.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_054.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_055.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_056.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_057.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_058.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_059.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_060.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_061.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_062.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_063.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_064.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_065.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_066.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\hair\convict_select_hair_067.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_010.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_011.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_012.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_013.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_014.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_015.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_016.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_017.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_018.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_019.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_020.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_021.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_022.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_023.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_024.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_025.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_026.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_027.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_028.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_029.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_030.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_031.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_032.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_033.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_034.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_035.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_036.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_037.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_038.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_039.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\breach_idles\trash\convict_select_trash_040.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\newspritesetup\timefall\jailbird_spaceflail_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_block_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_block_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_block_hit_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_dodge_left_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_dodge_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_dodge_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_dodge_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_duck_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_duck_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_duck_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_exhaust_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_exhaust_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_exhaust_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_hit_left_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_hit_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_hit_left_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_hit_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_hit_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_hit_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_idle_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_idle_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_idle_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_knockout_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_knockout_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_knockout_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_knockout_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_knockout_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_knockout_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_knockout_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_miss_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_miss_left_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_miss_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_miss_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_poof_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_poof_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_poof_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_poof_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_poof_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_blocked_left_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_blocked_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_blocked_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_blocked_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_left_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_left_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_left_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_right_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_right_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_punch_right_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_007.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_008.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_star_009.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_001.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_002.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_003.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_004.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_005.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\punchout\sprites\kkorroll_punch_win_006.png" />
+    <EmbeddedResource Include="Characters\KKoRRoLL\win_pic_junkan.png" />
+    <Content Include="icon.ico" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_001.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_002.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_003.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_004.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_005.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_vanish_006.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_toss_001.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_toss_002.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_toss_003.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_toss_004.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_toss_005.png" />
+    <EmbeddedResource Include="Resources\ThrowableActives\Item\item_toss_006.png" />
+    <EmbeddedResource Include="Resources\item_sprite.png" />
+    <EmbeddedResource Include="Resources\gruv_crown_sprite.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets" Condition="Exists('packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets'))" />
+  </Target>
+</Project>
