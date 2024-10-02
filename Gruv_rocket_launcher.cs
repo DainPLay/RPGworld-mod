@@ -29,7 +29,7 @@ namespace RPGworldMod
             gun.reloadTime = 1.2f;
             gun.DefaultModule.numberOfShotsInClip = 1;
             gun.InfiniteAmmo = true;
-            gun.quality = PickupObject.ItemQuality.S;
+            gun.quality = PickupObject.ItemQuality.SPECIAL;
             gun.ShouldBeExcludedFromShops = true;
             gun.barrelOffset.transform.localPosition = new Vector3(33f / 16f, 7f / 16f, 0f);
             gun.CanBeDropped = false;
@@ -55,7 +55,7 @@ namespace RPGworldMod
         private bool HasReloaded;
         public override void Update()
         {
-            if (!this.PlayerOwner.PlayerHasActiveSynergy("King of the fifth floor") && this.PlayerOwner.HasPickupID(Gruv_rocket_launcher.ID))
+            if (this.PlayerOwner != null && !this.PlayerOwner.PlayerHasActiveSynergy("King of the fifth floor") && this.PlayerOwner.HasPickupID(Gruv_rocket_launcher.ID))
             {
                 gun.m_owner = null;
                 this.PlayerOwner.RemoveItemFromInventory(gun);

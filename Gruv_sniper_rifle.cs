@@ -34,7 +34,7 @@ namespace RPGworldMod
             gun.DefaultModule.burstShotCount = 5;
             gun.DefaultModule.burstCooldownTime = 0.15f;
             gun.InfiniteAmmo = true;
-            gun.quality = PickupObject.ItemQuality.B;
+            gun.quality = PickupObject.ItemQuality.SPECIAL;
             gun.ShouldBeExcludedFromShops = true;
             gun.CanBeDropped = false;
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);
@@ -54,7 +54,7 @@ namespace RPGworldMod
         }
         public override void Update()
         {
-            if (!this.PlayerOwner.PlayerHasActiveSynergy("King of the third floor") && this.PlayerOwner.HasPickupID(Gruv_sniper_rifle.ID))
+            if (this.PlayerOwner != null && !this.PlayerOwner.PlayerHasActiveSynergy("King of the third floor") && this.PlayerOwner.HasPickupID(Gruv_sniper_rifle.ID))
             {
                 gun.m_owner = null;
                 this.PlayerOwner.RemoveItemFromInventory(gun);

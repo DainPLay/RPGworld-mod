@@ -12,7 +12,7 @@ namespace RPGworldMod
     {
         public const string GUID = "dainplay.etg.rpgworld";
         public const string NAME = "RPGworld mod";
-        public const string VERSION = "1.0.1";
+        public const string VERSION = "1.0.3";
         public const string TEXT_COLOR = "#00FFAA";
 
         public void Start()

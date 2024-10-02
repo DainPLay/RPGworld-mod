@@ -50,7 +50,7 @@ namespace RPGworldMod
 
             gun.reloadTime = 1.6f;
             gun.InfiniteAmmo = true;
-            gun.quality = PickupObject.ItemQuality.C;
+            gun.quality = PickupObject.ItemQuality.SPECIAL;
             gun.ShouldBeExcludedFromShops = true;
             gun.gunClass = GunClass.SHITTY;
             gun.Volley.UsesShotgunStyleVelocityRandomizer = true;
@@ -61,7 +61,7 @@ namespace RPGworldMod
 
         public override void Update()
         {
-            if (!this.PlayerOwner.PlayerHasActiveSynergy("King of the first floor") && this.PlayerOwner.HasPickupID(Gruv_shotgun.ID))
+            if (this.PlayerOwner != null && !this.PlayerOwner.PlayerHasActiveSynergy("King of the first floor") && this.PlayerOwner.HasPickupID(Gruv_shotgun.ID))
             {
                 gun.m_owner = null;
                 this.PlayerOwner.RemoveItemFromInventory(gun);

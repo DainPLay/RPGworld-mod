@@ -32,7 +32,7 @@ namespace RPGworldMod
             gun.DefaultModule.numberOfShotsInClip = 30;
             gun.barrelOffset.transform.localPosition = new Vector3(29f / 16f, 8f / 16f, 0f);
             gun.InfiniteAmmo = true;
-            gun.quality = PickupObject.ItemQuality.C;
+            gun.quality = PickupObject.ItemQuality.SPECIAL;
             gun.ShouldBeExcludedFromShops = true;
             gun.CanBeDropped = false;
             Projectile projectile = ProjectileUtility.SetupProjectile(86);
@@ -56,7 +56,7 @@ namespace RPGworldMod
         {
             if (gun.ClipShotsRemaining <= 0) gun.reloadTime = 0f;
             else gun.reloadTime = 1.4f;
-            if (!this.PlayerOwner.PlayerHasActiveSynergy("King of the second floor") && this.PlayerOwner.HasPickupID(Gruv_assault_rifle.ID))
+            if (this.PlayerOwner != null && !this.PlayerOwner.PlayerHasActiveSynergy("King of the second floor") && this.PlayerOwner.HasPickupID(Gruv_assault_rifle.ID))
             {
                 gun.m_owner = null;
                 this.PlayerOwner.RemoveItemFromInventory(gun);

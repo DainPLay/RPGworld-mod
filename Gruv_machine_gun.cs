@@ -34,7 +34,7 @@ namespace RPGworldMod
             gun.DefaultModule.numberOfShotsInClip = 1;
             gun.barrelOffset.transform.localPosition = new Vector3(33f / 16f, 6f / 16f, 0f);
             gun.InfiniteAmmo = true;
-            gun.quality = PickupObject.ItemQuality.A;
+            gun.quality = PickupObject.ItemQuality.SPECIAL;
             gun.ShouldBeExcludedFromShops = true;
             gun.CanBeDropped = false;
             Projectile projectile = ProjectileUtility.SetupProjectile(86);
@@ -91,7 +91,7 @@ namespace RPGworldMod
             }
             else gun.DefaultModule.cooldownTime = 0.4f;
             if (gun.DefaultModule.cooldownTime == 0.4f) GunExt.SetAnimationFPS(gun, gun.shootAnimation, 10);
-            if (!this.PlayerOwner.PlayerHasActiveSynergy("King of the fourth floor") && this.PlayerOwner.HasPickupID(Gruv_machine_gun.ID))
+            if (this.PlayerOwner != null && !this.PlayerOwner.PlayerHasActiveSynergy("King of the fourth floor") && this.PlayerOwner.HasPickupID(Gruv_machine_gun.ID))
             {
                 gun.m_owner = null;
                 this.PlayerOwner.RemoveItemFromInventory(gun);

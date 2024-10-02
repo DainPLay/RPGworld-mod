@@ -26,7 +26,7 @@ namespace RPGworldMod
 
             string shortDesc = "Drops a shadow";
 
-            string longDesc = "Can be thrown. At any point it can drop a shadow very similar to you! Exact match even.\n\n" +
+            string longDesc = "Can be thrown. At any point it can drop a shadow very similar to you! Exact match even. Telefrags everyone except bosses.\n\n" +
             "Just an item with a shadow. In its place there really could be anything else besides glass.";
 
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "rpgworld");
@@ -186,10 +186,6 @@ namespace RPGworldMod
             {
                 AkSoundEngine.PostEvent("Play_CHR_ninja_dash_01", this.teleportObject);
                 GameObject gameObject = TeleportPlayerToCursorPosition.BloodiedScarfPoofVFX;
-                GameObject gameObject2 = UnityEngine.Object.Instantiate<GameObject>(gameObject);
-                gameObject2.GetComponent<tk2dBaseSprite>().PlaceAtLocalPositionByAnchor(this.teleportObject.GetComponent<tk2dBaseSprite>().WorldCenter + new Vector2(0f, -0.5f), tk2dBaseSprite.Anchor.LowerCenter);
-                gameObject2.transform.position = gameObject2.transform.position.Quantize(0.0625f);
-                gameObject2.GetComponent<tk2dBaseSprite>().UpdateZDepth();
             }
             UnityEngine.Object.Destroy(this.teleportObject);
             this.m_isCurrentlyActive = false;
@@ -215,15 +211,6 @@ namespace RPGworldMod
         public override void OnDestroy()
         {
             AkSoundEngine.PostEvent("Play_CHR_ninja_dash_01", this.teleportObject);
-            GameObject gameObject = TeleportPlayerToCursorPosition.BloodiedScarfPoofVFX;
-            if (gameObject != null)
-            {
-                GameObject gameObject2 = UnityEngine.Object.Instantiate<GameObject>(gameObject);
-                gameObject2.GetComponent<tk2dBaseSprite>().PlaceAtLocalPositionByAnchor(this.teleportObject.GetComponent<tk2dBaseSprite>().WorldCenter + new Vector2(0f, -0.5f), tk2dBaseSprite.Anchor.LowerCenter);
-                gameObject2.transform.position = gameObject2.transform.position.Quantize(0.0625f);
-                gameObject2.GetComponent<tk2dBaseSprite>().UpdateZDepth();
-                UnityEngine.Object.Destroy(this.teleportObject);
-            }
             base.OnDestroy();
         }
         private void TeleportEffect(GameObject g, PlayerController p)

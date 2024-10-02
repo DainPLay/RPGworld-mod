@@ -32,7 +32,7 @@ namespace RPGworldMod
             gun.DefaultModule.burstShotCount = 3;
             gun.DefaultModule.burstCooldownTime = 0.15f;
             gun.InfiniteAmmo = true;
-            gun.quality = PickupObject.ItemQuality.D;
+            gun.quality = PickupObject.ItemQuality.SPECIAL;
             gun.ShouldBeExcludedFromShops = true;
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);
             projectile.gameObject.SetActive(false);
