@@ -3,7 +3,7 @@
 ## Mod Contents
 The mod aims to add as many characters and items from my personal project as possible.
 Currently it has **2 characters**:
-![KKoRRoLL](https://ibb.co/mSqpr5c) ![VlaDoge](https://ibb.co/4j8FsZx)
+![KKoRRoLL](https://i.ibb.co/Ybkg4BL/ezgif-com-resize-1.gif) ![VlaDoge](https://i.ibb.co/Xz7WyZT/ezgif-com-resize-2.gif)
 They are fully developed, have all the sprites, their own unique items and new special gameplay.
 **Defeat Lich with these characters to unlock thier alternative gun skins!**
 Or you can type in console `rpgworld unlock_alt_guns` to unlock them.
@@ -15,24 +15,24 @@ Or you can type in console `rpgworld unlock_alt_guns` to unlock them.
 ## Special Thanks
  Made with love and support of other members of Gungeon modding community. Has copied bits of code from other mods. Special thanks to SpecialAPI for implementing individual bits of mod's code.
  
-## Future plans
+## Future Plans
 RPGworld is huge and full of an incredible amount of different items, places and characters that, in my opinion, will perfectly complement Enter The Gungeon. **25** new character concepts are already done! I would like the next characters in the mod to be chosen by voting on the Mod The Gungeon Discord server. Let's see who it will be!
 In addition, the already added characters will receive in future updates:
 - Thier own pasts
 - Alternate skin
-- 
+
 # **Русский**
 ## Содержимое мода
 Мод стремится добавить как можно больше персонажей и предметов из моего личного проекта.
 На данный момент он насчитывает **2 персонажа**:
-![KKoRRoLL](https://imgur.com/I2AryMN) ![VlaDoge](https://imgur.com/H1I8beQ)
+![KKoRRoLL](https://i.ibb.co/Ybkg4BL/ezgif-com-resize-1.gif) ![VlaDoge](https://i.ibb.co/Xz7WyZT/ezgif-com-resize-2.gif)
 Они полностью проработаны, обладают всеми спрайтами, собственными уникальными предметами и новым особым геймплеем.
 **Одолейте Лича этими персонажами, чтобы открыть их альтернативные облики пушек!**
 Или Вы можете написать в консоль `rpgworld unlock_alt_guns`, чтобы открыть их.
 **А также**:
 - 14 новых предметов, включая 2 альтернативных облика на стартовые пушки персонажей
 - 9 новых синергий
-- 0 новых залов
+- 0 новых зaлов
 
 ## Особая благодарность
  Made with love and support of other members of Gungeon modding community. Has copied bits of code from other mods. Особая благодарность SpecialAPI за реализацию отдельных кусков кода.

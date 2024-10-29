@@ -2244,6 +2244,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_twohands\convict_idle_backward_hands2_001.png" />
