@@ -3,7 +3,7 @@
 ## Mod Contents
 The mod aims to add as many characters and items from my personal project as possible.
 Currently it has **2 characters**:
-![KKoRRoLL](https://imgur.com/I2AryMN) ![VlaDoge](https://imgur.com/H1I8beQ)
+![KKoRRoLL](https://ibb.co/mSqpr5c) ![VlaDoge](https://ibb.co/4j8FsZx)
 They are fully developed, have all the sprites, their own unique items and new special gameplay.
 **Defeat Lich with these characters to unlock thier alternative gun skins!**
 Or you can type in console `rpgworld unlock_alt_guns` to unlock them.
