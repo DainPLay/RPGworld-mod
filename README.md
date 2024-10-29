@@ -2,11 +2,17 @@
 # **English**
 ## Mod Contents
 The mod aims to add as many characters and items from my personal project as possible.
+
 Currently it has **2 characters**:
+
 ![KKoRRoLL](https://i.ibb.co/Ybkg4BL/ezgif-com-resize-1.gif) ![VlaDoge](https://i.ibb.co/Xz7WyZT/ezgif-com-resize-2.gif)
+
 They are fully developed, have all the sprites, their own unique items and new special gameplay.
+
 **Defeat Lich with these characters to unlock thier alternative gun skins!**
+
 Or you can type in console `rpgworld unlock_alt_guns` to unlock them.
+
 **Also**:
 - 14 new items, including 2 characters' alternative guns 
 - 9 new synergies
@@ -24,18 +30,24 @@ In addition, the already added characters will receive in future updates:
 # **Русский**
 ## Содержимое мода
 Мод стремится добавить как можно больше персонажей и предметов из моего личного проекта.
+
 На данный момент он насчитывает **2 персонажа**:
+
 ![KKoRRoLL](https://i.ibb.co/Ybkg4BL/ezgif-com-resize-1.gif) ![VlaDoge](https://i.ibb.co/Xz7WyZT/ezgif-com-resize-2.gif)
+
 Они полностью проработаны, обладают всеми спрайтами, собственными уникальными предметами и новым особым геймплеем.
+
 **Одолейте Лича этими персонажами, чтобы открыть их альтернативные облики пушек!**
+
 Или Вы можете написать в консоль `rpgworld unlock_alt_guns`, чтобы открыть их.
+
 **А также**:
 - 14 новых предметов, включая 2 альтернативных облика на стартовые пушки персонажей
 - 9 новых синергий
-- 0 новых зaлов
+- 0 новых залов
 
 ## Особая благодарность
- Made with love and support of other members of Gungeon modding community. Has copied bits of code from other mods. Особая благодарность SpecialAPI за реализацию отдельных кусков кода.
+ Сделано с любовью и поддержкой других членов моддинг-сообщества Enter The Gungeon. Содержит скопированные фрагменты кода из других модов. Особая благодарность SpecialAPI за реализацию отдельных кусков кода.
  
 ## Планы на будущее
 РПГмир огромен и полон неимоверного количества разных предметов, мест и персонажей, которые, по моему мнению, идеально дополнят Enter The Gungeon. Уже готовы **25** концептов новых персонажей! Я бы хотел, чтобы следующие персонажи в мод были выбраны путём голосования на Discord-сервере Mod The Gungeon. Посмотрим, кто же это будет!
