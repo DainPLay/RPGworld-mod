@@ -35,38 +35,49 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Gruv_machine_gun.cs" />
-    <Compile Include="Gruv_crown.cs" />
-    <Compile Include="Gruv_assault_rifle.cs" />
-    <Compile Include="Gruv_rocket_launcher.cs" />
-    <Compile Include="Gruv_sniper_rifle.cs" />
-    <Compile Include="Gruv_shotgun.cs" />
-    <Compile Include="Gruv_pistol.cs" />
+    <Compile Include="Items\Guns\Alt_ankh_shield.cs" />
+    <Compile Include="Tools\AnimateBullet.cs" />
+    <Compile Include="Items\Guns\Autumn_luxin_cannon.cs" />
+    <Compile Include="Items\Passives\Gravity_sign.cs" />
+    <Compile Include="Items\Guns\Ankh_shield.cs" />
+    <Compile Include="Items\Passives\Dagger_bullets.cs" />
+    <Compile Include="Items\Guns\Gruv_machine_gun.cs" />
+    <Compile Include="Items\Passives\Gruv_crown.cs" />
+    <Compile Include="Items\Guns\Gruv_assault_rifle.cs" />
+    <Compile Include="Items\Guns\Alt_gruv_pistol.cs" />
+    <Compile Include="Items\Guns\Gruv_rocket_launcher.cs" />
+    <Compile Include="Stolen from KtG\ChildProjCleanup.cs" />
+    <Compile Include="Stolen from KtG\ProjectileSlashingBehaviour.cs" />
+    <Compile Include="Stolen from KtG\ProjectileSplitController.cs" />
+    <Compile Include="Items\Guns\Rapid_dagger_spell.cs" />
+    <Compile Include="Items\Guns\Gruv_sniper_rifle.cs" />
+    <Compile Include="Items\Guns\Gruv_shotgun.cs" />
+    <Compile Include="Items\Guns\Gruv_pistol.cs" />
     <Compile Include="InitialiseSynergies.cs" />
     <Compile Include="InitialiseCharacters.cs" />
-    <Compile Include="An_item.cs" />
-    <Compile Include="MiscToolMethods.cs" />
+    <Compile Include="Items\Actives\An_item.cs" />
+    <Compile Include="Tools\MiscToolMethods.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SRainbowModifier.cs" />
-    <Compile Include="StaticCoroutine.cs" />
-    <Compile Include="Stuff.cs" />
-    <Compile Include="TeleportPlayerToCursorPosition.cs" />
-    <Compile Include="Tools.cs" />
+    <Compile Include="Stolen from KtG\SlashDoer.cs" />
+    <Compile Include="Tools\SRainbowModifier.cs" />
+    <Compile Include="Tools\StaticCoroutine.cs" />
+    <Compile Include="Tools\Stuff.cs" />
+    <Compile Include="Tools\TeleportPlayerToCursorPosition.cs" />
+    <Compile Include="Tools\VFXToolbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_001.png" />
     <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_002.png" />
     <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_003.png" />
     <EmbeddedResource Include="Characters\KKoRRoLL\foyercard\convict_alt_facecard_idle_004.png" />
-    <EmbeddedResource Include="Resources\example_item_sprite.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\HarmonyX.2.7.0\lib\net35\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Alexandria, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\EtG.Alexandria.0.4.0\lib\net35\Alexandria.dll</HintPath>
+      <HintPath>packages\EtG.Alexandria.0.4.16\lib\net35\Alexandria.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\EtG.GameLibs.2.1.9.1\lib\net35\Assembly-CSharp.dll</HintPath>
@@ -78,7 +89,7 @@
       <HintPath>packages\BepInEx.BaseLib.5.4.21\lib\net35\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="ModTheGungeonAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\EtG.ModTheGungeonAPI.1.7.4\lib\net35\ModTheGungeonAPI.dll</HintPath>
+      <HintPath>packages\EtG.ModTheGungeonAPI.1.9.1\lib\net35\ModTheGungeonAPI.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
       <HintPath>packages\Mono.Cecil.0.10.4\lib\net35\Mono.Cecil.dll</HintPath>
@@ -261,9 +272,6 @@
     <Reference Include="UnityEngine.WindModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\EtG.UnityEngine.1.0.0\lib\UnityEngine.WindModule.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Characters\KKoRRoLL\alt_skin_obj_sprite_001.png" />
@@ -808,12 +816,1601 @@
     <EmbeddedResource Include="Resources\item_sprite.png" />
     <EmbeddedResource Include="Resources\gruv_crown_sprite.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\alt_skin_obj_sprite_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\alt_skin_obj_sprite_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\bosscard_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\characterdata.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\facecard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_appear_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_appear_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_appear_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_appear_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_appear_011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_idle_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_idle_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_idle_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_alt_facecard_idle_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_facecard_appear_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_facecard_appear_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_facecard_appear_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_facecard_appear_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\foyercard\convict_facecard_appear_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_013.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_016.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_019.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_021.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_022.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_025.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_026.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_027.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_028.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_029.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_032.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_033.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_035.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_036.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_041.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_042.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_043.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_044.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_046.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_047.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_choose\convict_select_choose_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_013.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_016.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_019.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_021.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_022.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_025.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_026.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_027.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_028.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_029.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_032.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_033.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_035.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_036.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\chest_recover\convict_chest_recover_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\chest_recover\convict_chest_recover_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\chest_recover\convict_chest_recover_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\chest_recover\convict_chest_recover_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\chest_recover\convict_chest_recover_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\chest_recover\convict_chest_recover_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\chest_recover\convict_chest_recover_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death\convict_death_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_coop\cc_sprite_placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\death_shot\convict_deathshot_012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge\convict_dodge_south_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_bw\convict_dodge_north_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left\convict_dodge_side_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\dodge_left_bw\convict_dodge_back_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\doorway\convict_run_north_doorway_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back\convict_ghost_back_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back\convict_ghost_back_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back\convict_ghost_back_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back\convict_ghost_back_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_left\convict_ghost_back_left_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_back_right\convict_ghost_back_right_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_front\convict_ghost_front_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_front\convict_ghost_front_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_front\convict_ghost_front_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_front\convict_ghost_front_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_left\convict_ghost_front_left_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_left\convict_ghost_front_left_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_left\convict_ghost_front_left_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_left\convict_ghost_front_left_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_right\convict_ghost_front_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_right\convict_ghost_front_right_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_right\convict_ghost_front_right_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_idle_right\convict_ghost_front_right_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_left\convict_ghost_sneeze_left_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\ghost_sneeze_right\convict_ghost_sneeze_right_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle\convict_idle_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle\convict_idle_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle\convict_idle_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle\convict_idle_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward\convict_idle_back_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward\convict_idle_back_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward\convict_idle_back_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward\convict_idle_back_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_hand\convict_idle_back_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_hand\convict_idle_back_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_hand\convict_idle_back_hand_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_hand\convict_idle_back_hand_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_backward_twohands\convict_idle_back_twohands_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw\convict_idle_bw_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw\convict_idle_bw_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw\convict_idle_bw_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw\convict_idle_bw_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_hand\convict_idle_backward_hands2_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_twohands\cc_sprite_placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward\convict_idle_front_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward\convict_idle_front_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward\convict_idle_front_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward\convict_idle_front_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_hand\convict_idle_front_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_hand\convict_idle_front_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_hand\convict_idle_front_hand_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_hand\convict_idle_front_hand_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_forward_twohands\convict_idle_front_twohands_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_hand\convict_idle_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_hand\convict_idle_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_hand\convict_idle_hand_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_hand\convict_idle_hand_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_twohands\convict_idle_twohands_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_twohands\convict_idle_twohands_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_twohands\convict_idle_twohands_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_twohands\convict_idle_twohands_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\item_get\convict_item_011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_down\convict_jetpack_front_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_down\convict_jetpack_front_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_down_hand\convict_jetpack_front_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_down_hand\convict_jetpack_front_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_right\convict_jetpack_front_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_right\convict_jetpack_front_right_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_right_bw\convict_jetpack_back_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_right_bw\convict_jetpack_back_right_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_right_hand\convict_jetpack_front_right_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_right_hand\convict_jetpack_front_right_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_up\convict_jetpack_back_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\jetpack_up\convict_jetpack_back_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pet\convict_pet_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pet\convict_pet_right_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall\convict_pitfall_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall\convict_pitfall_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall\convict_pitfall_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall\convict_pitfall_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall\convict_pitfall_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall\convict_pitfall_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_down\convict_pitfall_forward_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_down\convict_pitfall_forward_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_down\convict_pitfall_forward_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_down\convict_pitfall_forward_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_down\convict_pitfall_forward_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_down\convict_pitfall_forward_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_return\convict_pit_return_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_return\convict_pit_return_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_return\convict_pit_return_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_return\convict_pit_return_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_return\convict_pit_return_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\pitfall_return\convict_pit_return_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down\convict_run_south_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down\convict_run_south_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down\convict_run_south_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down\convict_run_south_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down\convict_run_south_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down\convict_run_south_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_hand\convict_run_south_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_hand\convict_run_south_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_hand\convict_run_south_hand_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_hand\convict_run_south_hand_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_hand\convict_run_south_hand_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_hand\convict_run_south_hand_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_twohands\convict_run_south_hands2_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_twohands\convict_run_south_hands2_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_twohands\convict_run_south_hands2_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_twohands\convict_run_south_hands2_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_twohands\convict_run_south_hands2_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_down_twohands\convict_run_south_hands2_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right\convict_run_forward_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right\convict_run_forward_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right\convict_run_forward_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right\convict_run_forward_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right\convict_run_forward_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right\convict_run_forward_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw\convict_run_backwards_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw\convict_run_backwards_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw\convict_run_backwards_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw\convict_run_backwards_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw\convict_run_backwards_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw\convict_run_backwards_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw_hand\cc_sprite_placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_bw_twohands\convict_run_backwards_hands2_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_hand\convict_run_forward_hands_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_hand\convict_run_forward_hands_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_hand\convict_run_forward_hands_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_hand\convict_run_forward_hands_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_hand\convict_run_forward_hands_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_hand\convict_run_forward_hands_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_twohands\convict_run_forward_hands2_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_twohands\convict_run_forward_hands2_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_twohands\convict_run_forward_hands2_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_twohands\convict_run_forward_hands2_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_twohands\convict_run_forward_hands2_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_right_twohands\convict_run_forward_hands2_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up\convict_run_north_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up\convict_run_north_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up\convict_run_north_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up\convict_run_north_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up\convict_run_north_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up\convict_run_north_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_hand\convict_run_north_hands_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_hand\convict_run_north_hands_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_hand\convict_run_north_hands_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_hand\convict_run_north_hands_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_hand\convict_run_north_hands_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_hand\convict_run_north_hands_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_twohands\convict_run_north_hands2_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_twohands\convict_run_north_hands2_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_twohands\convict_run_north_hands2_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_twohands\convict_run_north_hands2_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_twohands\convict_run_north_hands2_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\run_up_twohands\convict_run_north_hands2_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\slide_down\convict_slide_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\slide_right\convict_slide_altright_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\slide_up\convict_slide_up_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spinfall\convict_spin_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spinfall\convict_spin_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spinfall\convict_spin_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spinfall\convict_spin_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spinfall\convict_spin_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spinfall\convict_spin_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spit_out\convict_tarnisher_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spit_out\convict_tarnisher_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spit_out\convict_tarnisher_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spit_out\convict_tarnisher_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spit_out\convict_tarnisher_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\spit_out\convict_tarnisher_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_down\convict_tablekick_down_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_down\convict_tablekick_down_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_down_hand\convict_tablekick_down_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_down_hand\convict_tablekick_down_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right\convict_tablekick_right_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right\convict_tablekick_right_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right\convict_tablekick_right_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right\convict_tablekick_right_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_right_hand\convict_tablekick_right_hand_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_up\convict_tablekick_up_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\tablekick_up\convict_tablekick_up_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\timefall\jailbird_spaceflail_008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\facecard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\facecard2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\facecard3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\win_pic_junkan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_block_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_block_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_block_hit_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_dodge_left_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_dodge_left_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_dodge_right_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_dodge_right_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_duck_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_duck_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_exhaust_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_exhaust_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_exhaust_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_hit_left_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_hit_left_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_hit_left_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_hit_right_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_hit_right_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_hit_right_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_idle_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_idle_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_idle_004.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_knockout_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_knockout_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_knockout_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_knockout_004.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_knockout_005.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_knockout_006.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_knockout_007.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_miss_left_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_miss_left_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_miss_right_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_miss_right_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_poof_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_poof_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_poof_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_poof_004.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_poof_005.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_blocked_left_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_blocked_right_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_blocked_right_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_left_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_left_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_left_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_right_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_right_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_right_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_004.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_005.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_006.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_007.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_008.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_star_009.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_win_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_win_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_win_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_win_004.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_win_005.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_win_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_009.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\gravity_sign_sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_011.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_012.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_013.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_014.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_015.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_016.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_017.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_018.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_019.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\select_idle\convict_select_idle_020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\CustomGunAmmoTypes\mana_clipempty.png" />
+    <EmbeddedResource Include="Resources\CustomGunAmmoTypes\mana_clipfull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_001.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_002.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_003.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\loadoutsprites\a_ankh_shield.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\loadoutsprites\b_rapid_dagger_spell.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\loadoutsprites\c_gravity_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_trail_001.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_trail_002.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_trail_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_001.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_002.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_003.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_004.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_005.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_007.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_008.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_impact_horizontal_009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_critical_impact_001.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_critical_impact_002.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_critical_impact_003.png" />
+    <EmbeddedResource Include="Resources\VFX\rapid_dagger_critical_impact_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Debris\empty_mana_bottle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_twohands\convict_idle_backward_hands2_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_twohands\convict_idle_backward_hands2_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_twohands\convict_idle_backward_hands2_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\idle_bw_twohands\convict_idle_backward_hands2_004.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_048.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_049.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_050.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_051.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_052.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_053.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_054.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_055.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_056.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_057.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_058.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_059.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_060.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_061.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\hair\convict_select_hair_062.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_041.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_042.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_043.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_044.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_045.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_046.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_047.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_048.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_049.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_050.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_051.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_052.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_053.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_054.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_055.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_056.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_057.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_058.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_059.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_060.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_061.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_062.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_063.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_064.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_065.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_066.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_067.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_068.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_069.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_070.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_071.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_072.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_073.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_074.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_075.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_076.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_077.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_078.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_079.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_080.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_081.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_082.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_083.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_084.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_085.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_086.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_087.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_088.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_089.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_090.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_091.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_092.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_093.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_094.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_095.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_096.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_097.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_098.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_099.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_100.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_101.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_102.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_103.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_104.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_105.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_106.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_107.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_108.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_109.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_110.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_111.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\trash\convict_select_trash_112.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_flare_001.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_flare_002.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_flare_003.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_enemy_001.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_enemy_002.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_enemy_003.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_enemy_004.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_001.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_002.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_003.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_004.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_005.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_006.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_007.png" />
+    <EmbeddedResource Include="Resources\VFX\green_shadow_soul_impact_horizontal_008.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_machinegun_muzzleflash_001.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_machinegun_muzzleflash_002.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_machinegun_muzzleflash_003.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_machinegun_muzzleflash_004.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_machinegun_muzzleflash_005.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_machinegun_muzzleflash_006.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_machinegun_muzzleflash_007.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_reload_vfx_001.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_reload_vfx_002.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_reload_vfx_003.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_reload_vfx_004.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_reload_vfx_005.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_reload_vfx_006.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_shotgun_muzzleflash_001.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_shotgun_muzzleflash_002.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_shotgun_muzzleflash_003.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_shotgun_muzzleflash_004.png" />
+    <EmbeddedResource Include="Resources\VFX\autumn_luxin_gun_shotgun_muzzleflash_005.png" />
+    <EmbeddedResource Include="Resources\CustomGunAmmoTypes\green_shadow_soul_clipempty.png" />
+    <EmbeddedResource Include="Resources\CustomGunAmmoTypes\green_shadow_soul_clipfull.png" />
+    <EmbeddedResource Include="Resources\CustomGunAmmoTypes\alt_ankh_durability_clipfull.png" />
+    <EmbeddedResource Include="Resources\CustomGunAmmoTypes\ankh_durability_clipempty.png" />
+    <EmbeddedResource Include="Resources\CustomGunAmmoTypes\ankh_durability_clipfull.png" />
+    <EmbeddedResource Include="Resources\dagger_bullets_sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms\convict_select_crossarms_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms\convict_select_crossarms_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_003.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_004.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_005.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_006.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_007.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_008.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_009.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_010.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_011.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_012.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_013.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_014.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_015.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_016.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_017.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_hold\convict_select_crossarms_hold_018.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_out\convict_select_crossarms_out_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\newspritesetup\breach_idles\crossarms_out\convict_select_crossarms_out_002.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_punch_blocked_left_001.png" />
+    <EmbeddedResource Include="Characters\VlaDoge\punchout\sprites\vladoge_punch_duck_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets" Condition="Exists('packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\BepInEx.Core.5.4.21\build\BepInEx.Core.targets'))" />
   </Target>

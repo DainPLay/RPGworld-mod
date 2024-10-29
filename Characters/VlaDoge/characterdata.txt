@@ -1,0 +1,16 @@
+base: Convict
+name: VlaDoge
+name short: vladoge
+nickname: Reader
+punchout sprite fix: true
+
+<loadout>
+	rpgworld:rapid_dagger_spell
+	rpgworld:gravity_sign 
+	rpgworld:ankh_shield infinite
+</loadout>
+
+<altGuns>
+	rpgworld:rapid_dagger_spell
+	rpgworld:alt_ankh_shield infinite
+</altGuns>

@@ -11,5 +11,5 @@ punchout sprite fix: true
 </loadout>
 
 <altGuns>
-	rpgworld:gruv_pistol infinite
+	rpgworld:alt_gruv_pistol infinite
 </altGuns>
