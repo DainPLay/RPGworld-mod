@@ -57,7 +57,7 @@ namespace RPGworldMod
                 var outlineMat = SpriteOutlineManager.GetOutlineMaterial(arg1.sprite);
                 messedup = false;
                 if (!arg1.IsOverPitAtAll) this.DoMicroBlank(arg1.specRigidbody.UnitCenter);
-                else
+                else if(!arg1.DodgeRollIsBlink)
                 {
                     arg1.ForceFall();
                     arg1.spriteAnimator.Stop();
@@ -68,6 +68,40 @@ namespace RPGworldMod
                 if (arg1.PlayerHasActiveSynergy("RPGW Bounce Sign"))
                 {
                     if (!arg1.CheckDodgeRollDepth())
+                    {
+                        if (arg1.DodgeRollIsBlink)
+                        {
+                            PassiveItem.IncrementFlag(arg1, typeof(Gravity_sign));
+                            StartCoroutine(CooldownCR());
+                        }
+                        else
+                        {
+                            if (!messedup)
+                            {
+                                arg1.ForceStopDodgeRoll();
+                                arg1.ToggleGunRenderers(true, "");
+                                arg1.ToggleHandRenderers(true, "");
+                            }
+                            PassiveItem.IncrementFlag(arg1, typeof(Gravity_sign));
+                            arg1.spriteAnimator.Stop();
+                            arg1.QueueSpecificAnimation(arg1.spriteAnimator.GetClipByName((!arg1.UseArmorlessAnim) ? "pitfall_return" : "pitfall_return_armorless").name);
+                            arg1.spriteAnimator.SetFrame(0, false);
+                            arg1.ToggleGunRenderers(false, "");
+                            arg1.ToggleHandRenderers(false, "");
+                            isdropping = true;
+                            if (!cooldown) StartCoroutine(CooldownCR());
+                        }
+                    }
+                    used_gravity = true;
+                }
+                else
+                {
+                    if (arg1.DodgeRollIsBlink)
+                    {
+                        PassiveItem.IncrementFlag(arg1, typeof(Gravity_sign));
+                        StartCoroutine(CooldownCR());
+                    }
+                    else
                     {
                         if (!messedup)
                         {
@@ -82,26 +116,8 @@ namespace RPGworldMod
                         arg1.ToggleGunRenderers(false, "");
                         arg1.ToggleHandRenderers(false, "");
                         isdropping = true;
-                        if (!cooldown) StartCoroutine(CooldownCR());
+                        StartCoroutine(CooldownCR());
                     }
-                    used_gravity = true;
-                }
-                else
-                {
-                    if (!messedup)
-                    {
-                        arg1.ForceStopDodgeRoll();
-                        arg1.ToggleGunRenderers(true, "");
-                        arg1.ToggleHandRenderers(true, "");
-                    }
-                    PassiveItem.IncrementFlag(arg1, typeof(Gravity_sign));
-                    arg1.spriteAnimator.Stop();
-                    arg1.QueueSpecificAnimation(arg1.spriteAnimator.GetClipByName((!arg1.UseArmorlessAnim) ? "pitfall_return" : "pitfall_return_armorless").name);
-                    arg1.spriteAnimator.SetFrame(0, false);
-                    arg1.ToggleGunRenderers(false, "");
-                    arg1.ToggleHandRenderers(false, "");
-                    isdropping = true;
-                    StartCoroutine(CooldownCR());
                 }
             }
         }
@@ -113,7 +129,7 @@ namespace RPGworldMod
             {
                 messedup = false;
                 if (!obj.IsOverPitAtAll) this.DoMicroBlank(obj.specRigidbody.UnitCenter);
-                else
+                else if (!obj.DodgeRollIsBlink)
                 {
                     obj.ForceFall();
                     messedup = true;
@@ -122,6 +138,40 @@ namespace RPGworldMod
                 if (obj.PlayerHasActiveSynergy("RPGW Bounce Sign"))
                 {
                     if (!obj.CheckDodgeRollDepth())
+                    {
+                        if (obj.DodgeRollIsBlink)
+                        {
+                            PassiveItem.IncrementFlag(obj, typeof(Gravity_sign));
+                            StartCoroutine(CooldownCR());
+                        }
+                        else
+                        {
+                            if (!messedup)
+                            {
+                                obj.ForceStopDodgeRoll();
+                                obj.ToggleGunRenderers(true, "");
+                                obj.ToggleHandRenderers(true, "");
+                            }
+                            PassiveItem.IncrementFlag(obj, typeof(Gravity_sign));
+                            obj.spriteAnimator.Stop();
+                            obj.QueueSpecificAnimation(obj.spriteAnimator.GetClipByName((!obj.UseArmorlessAnim) ? "pitfall_return" : "pitfall_return_armorless").name);
+                            obj.spriteAnimator.SetFrame(0, false);
+                            obj.ToggleGunRenderers(false, "");
+                            obj.ToggleHandRenderers(false, "");
+                            isdropping = true;
+                            if (!cooldown) StartCoroutine(CooldownCR());
+                        }
+                    }
+                    used_gravity = true;
+                }
+                else
+                {
+                    if (obj.DodgeRollIsBlink)
+                    {
+                        PassiveItem.IncrementFlag(obj, typeof(Gravity_sign));
+                        StartCoroutine(CooldownCR());
+                    }
+                    else
                     {
                         if (!messedup)
                         {
@@ -136,26 +186,8 @@ namespace RPGworldMod
                         obj.ToggleGunRenderers(false, "");
                         obj.ToggleHandRenderers(false, "");
                         isdropping = true;
-                        if (!cooldown) StartCoroutine(CooldownCR());
+                        StartCoroutine(CooldownCR());
                     }
-                    used_gravity = true;
-                }
-                else
-                {
-                    if (!messedup)
-                    {
-                        obj.ForceStopDodgeRoll();
-                        obj.ToggleGunRenderers(true, "");
-                        obj.ToggleHandRenderers(true, "");
-                    }
-                    PassiveItem.IncrementFlag(obj, typeof(Gravity_sign));
-                    obj.spriteAnimator.Stop();
-                    obj.QueueSpecificAnimation(obj.spriteAnimator.GetClipByName((!obj.UseArmorlessAnim) ? "pitfall_return" : "pitfall_return_armorless").name);
-                    obj.spriteAnimator.SetFrame(0, false);
-                    obj.ToggleGunRenderers(false, "");
-                    obj.ToggleHandRenderers(false, "");
-                    isdropping = true;
-                    StartCoroutine(CooldownCR());
 
                 }
             }

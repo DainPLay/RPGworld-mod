@@ -43,7 +43,7 @@ namespace RPGworldMod
             gun.DefaultModule.cooldownTime = 0.1f;
             gun.DefaultModule.numberOfShotsInClip = 13;
             gun.muzzleFlashEffects.type = VFXPoolType.None;
-            gun.quality = PickupObject.ItemQuality.B;
+            gun.quality = PickupObject.ItemQuality.A;
             gun.gunClass = GunClass.SILLY;
             gun.gunHandedness = GunHandedness.TwoHanded;
             gun.outOfAmmoAnimation = gun.UpdateAnimation("empty");

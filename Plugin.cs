@@ -11,6 +11,7 @@ using Mono.Cecil.Cil;
 using HutongGames.PlayMaker.Actions;
 using Reaktion;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace RPGworldMod
 {
@@ -21,18 +22,12 @@ namespace RPGworldMod
     {
         public const string GUID = "dainplay.etg.rpgworld";
         public const string NAME = "RPGworld mod";
-        public const string VERSION = "1.1.1";
+        public const string VERSION = "1.1.2";
         public const string TEXT_COLOR = "#00FFAA";
 
         public void Start()
         {
-
-            ETGModConsole.Commands.AddGroup("rpgworld unlock_alt_guns", args =>
-            {
-                GameStatsManager.Instance.SetCharacterSpecificFlag(ETGModCompatibility.ExtendEnum<PlayableCharacters>(GUID, "vladoge"), CharacterSpecificGungeonFlags.CLEARED_BULLET_HELL, true);
-                GameStatsManager.Instance.SetCharacterSpecificFlag(ETGModCompatibility.ExtendEnum<PlayableCharacters>(GUID, "kkorroll"), CharacterSpecificGungeonFlags.CLEARED_BULLET_HELL, true);
-                LogRainbow("Alternative gun skins unlocked!");
-            });
+            ConsoleCommands();
             ETGModMainBehaviour.WaitForGameManagerStart(GMStart);
         }
 
@@ -873,8 +868,9 @@ namespace RPGworldMod
             [HarmonyPrefix]
             public static void Prefix(FoyerAlternateGunShrineController __instance, ref PlayerController interactor)
             {
-                //Log(interactor.characterIdentity.ToString());
-                if(interactor.characterIdentity.ToString() == "dainplay.etg.rpgworld.kkorroll" || interactor.characterIdentity.ToString() == "dainplay.etg.rpgworld.vladoge") GameStatsManager.Instance.SetCharacterSpecificFlag(interactor.characterIdentity, CharacterSpecificGungeonFlags.KILLED_PAST_ALTERNATE_COSTUME, GameStatsManager.Instance.GetCharacterSpecificFlag(interactor.characterIdentity, CharacterSpecificGungeonFlags.CLEARED_BULLET_HELL));
+                //Log(interactor.sprite.spriteAnimator.library.name);
+                //Log(interactor.name);
+                if (interactor.characterIdentity.ToString() == "dainplay.etg.rpgworld.kkorroll" || interactor.characterIdentity.ToString() == "dainplay.etg.rpgworld.vladoge") GameStatsManager.Instance.SetCharacterSpecificFlag(interactor.characterIdentity, CharacterSpecificGungeonFlags.KILLED_PAST_ALTERNATE_COSTUME, GameStatsManager.Instance.GetCharacterSpecificFlag(interactor.characterIdentity, CharacterSpecificGungeonFlags.CLEARED_BULLET_HELL));
             }
         }
 
@@ -963,6 +959,22 @@ namespace RPGworldMod
             yield return null;
             InitialiseSynergies.DoInitialisation();
         }
+
+        public static void ConsoleCommands()
+        {
+            ETGModConsole.Commands.AddGroup("rpgworld");
+            ConsoleCommandGroup group = ETGModConsole.Commands.GetGroup("rpgworld");
+            group.AddUnit("unlock_alt_guns", delegate (string[] x)
+            {
+                GameStatsManager.Instance.SetCharacterSpecificFlag(ETGModCompatibility.ExtendEnum<PlayableCharacters>(GUID, "vladoge"), CharacterSpecificGungeonFlags.CLEARED_BULLET_HELL, true);
+                GameStatsManager.Instance.SetCharacterSpecificFlag(ETGModCompatibility.ExtendEnum<PlayableCharacters>(GUID, "kkorroll"), CharacterSpecificGungeonFlags.CLEARED_BULLET_HELL, true);
+                LogRainbow("Alternative gun skins unlocked!");
+            });
+            Dictionary<string, string> commandDescriptions = ETGModConsole.CommandDescriptions;
+            commandDescriptions["rpgworld unlock_alt_guns"] = "Unlocks alt guns for all of the RPGworld's characters";
+        }
+
+
         public static void Log(string text, string color="#FFFFFF")
         {
             ETGModConsole.Log($"<color={color}>{text}</color>");
@@ -990,7 +1002,7 @@ namespace RPGworldMod
             ETGModConsole.Instance.GUI[0].Children.Add(container);
         }
         public static void LoadMessage()
-		{
+		{   
             var txt = $"Welcome to RPGworld v{VERSION}";
 
                 var groupHeight = 48;
